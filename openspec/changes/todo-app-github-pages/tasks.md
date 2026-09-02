@@ -13,7 +13,7 @@
 
 ## 3. Build Config
 
-- [x] 3.1 Set `base: '/todo_app/'` in `vite.config.ts`
+- [x] 3.1 Set `base: '/'` in `vite.config.ts` (root-relative; supersedes the earlier `/todo_app/` plan for the custom apex domain)
 - [x] 3.2 Verify production build succeeds (`npm run build`) and inspect asset paths in `dist/index.html`
 
 ## 4. GitHub Pages Deployment
@@ -24,4 +24,14 @@
 ## 5. Verify
 
 - [x] 5.1 Run typecheck/lint and production build locally; confirm clean output
-- [ ] 5.2 Confirm the pushed site loads correctly at the Pages URL (assets not 404ing, todos functional)
+- [ ] 5.2 Confirm the pushed site loads correctly at the custom domain URL (assets not 404ing, todos functional)
+
+## 6. Custom Domain
+
+- [x] 6.1 Change Vite `base` to `'/'` in `vite.config.ts`
+- [x] 6.2 Add `public/CNAME` containing `baldur.lat`
+- [x] 6.3 Rebuild and verify `dist/index.html` references `/assets/...` (no `/todo_app/` prefix) and `dist/CNAME` is present
+- [ ] 6.4 Namecheap DNS: add four A records for `@` → GitHub Pages IPs (185.199.108.153 / .109 / .110 / .111), remove parking record
+- [ ] 6.5 GitHub Pages UI: set Custom domain `baldur.lat`, Enforce HTTPS
+- [ ] 6.6 Push commit and confirm workflow deploys cleanly
+- [ ] 6.7 Verify `https://baldur.lat/` loads the app over HTTPS
